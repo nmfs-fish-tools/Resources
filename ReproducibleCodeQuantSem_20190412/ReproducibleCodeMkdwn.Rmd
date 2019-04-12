@@ -1,0 +1,315 @@
+---
+title: "The life changing magic of tidying your R code"
+author: ECS Federal in support of NOAA Fisheries S & T
+subtitle: Christine Stawitz
+date: "April 12, 2019"
+output: 
+  revealjs::revealjs_presentation:
+    theme: sky
+    highlight: kate
+    transition: fade
+    reveal_options:
+      hash: true
+    
+      
+---
+
+# Background
+
+## NOAA Fisheries National Modeling Team
+Mission: to develop, test, document, and provide national analytical tools that facilitate accuracy, efficiency, and utility of stock assessment methods
+
+## Defining standards for modeling tools
+
+- Documentation
+- Testing
+- Examples and tutorials
+- Standard inputs and outputs
+- Reproducible coding standards
+- Scientific rigor (published references)
+
+
+## {data-background=figs/automation_2x.png data-background-size=contain}
+
+
+## Best investments for researchers
+
+>- Your next user will probably be you, in a few months
+>- Reduces errors
+>- Makes paper writing/review process less painful
+>- Enables easy re-use of functions
+>- Makes running on a new dataset simpler
+>- Enables easier sharing later
+
+## A personal anecdote
+>- Chapter 1: not written well
+  >- Errors were found
+>- Re-written in python, and `TMB` (soon) 
+![clutter](figs/marie-kondo-clutter.jpg)
+
+## A personal anecdote
+>- Chapter 2: Used functions and error messages and kept code/outputs organized
+  >- Rejected twice
+![clutter](figs/organized.jpg)
+
+## "Good enough" practices
+- [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1005510&type=printable) (2017) PLos One Computational Bio; Wilson, Bryan, Cranston, Kitzes, Nederbragt & Teal
+
+## Topics
+>- Reproducible architecture
+>- Basic documentation
+>- Errors
+
+# Reproducible architecture
+
+## Overview
+- Logically organize project directories
+- Explicitly define dependencies
+- Use functional programming
+- Ruthlessly avoid duplication
+- Meaningful consistent naming
+
+## Project directory organization
+
+- Use different directories to separate inputs, outputs, code, and docs
+```{}
+|-- requirements.txt
+|-- data
+| |-- raw_foofy_data.csv
+|-- doc
+| |-- notebook.md
+| |-- manuscript.md
+| |-- changelog.txt
+|-- figs
+| |-- foofy_scatterplot.png
+|-- src
+| |-- make_plots.R
+```
+- ideally using git
+
+## Relative rather than hardcoded paths to files
+![workflow](workflow.PNG)
+- From [this](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
+
+##Example from jennybc
+```{r eval=FALSE}
+#Bad
+library(ggplot2)
+setwd("/Users/jenny/cuddly_broccoli/verbose_funicular/foofy/data")
+df <- read.delim("raw_foofy_data.csv")
+p <- ggplot(df, aes(x, y)) + geom_point()
+ggsave("../figs/foofy_scatterplot.png")
+
+#Better
+library(ggplot2)
+library(here)
+
+df <- read.delim(here("data", "raw_foofy_data.csv"))
+p <- ggplot(df, aes(x, y)) + geom_point()
+ggsave(here("figs", "foofy_scatterplot.png"))
+```  
+
+## Creating R Projects
+>- `File -> New Project`
+>- Saves the state of your workspace
+>- Keeps working directory consistent
+
+## Creating R packages
+- Cons:
+    - Requires dependencies (Rtools, devtools)
+    - Sensitive to directory changes and structure
+
+- Pros:
+    - Shortcuts to access/modify package components and git (usethis package)
+    - Enforces use of functions & sourcing
+    - Easier to convert to a shareable package
+  
+## Notebooks
+>- `File -> New File -> R Notebook`
+>- Organize text and code together, without re-knitting
+  >- [Example](https://blog.rstudio.com/2016/10/05/r-notebooks/)
+>- Jupyter: use with `conda` to manage environments and share code easily
+
+
+## Requirements
+>- Requirements for program to work
+>- Tests to ensure program has been installed correctly
+>- Simplifies returning to and sharing code
+>- In `DESCRIPTION` if you are making a package
+
+## Changelog
+>- Could be as simple as `changelog.txt` file
+>- Easy to add in Notebook
+>- Using git simplifies this
+
+## Functions
+>- in `src` or `R` directory  
+>- No more than 60 lines long
+>- Fewer than 6 arguments
+>- No globals or `attach()`
+
+## Avoiding duplication
+>- Make lists/vectors instead of multiple objects
+>- Use iteration (loops) or mapping (`lapply`, `purrr`) wherever possible 
+>- Never [copy and paste](https://en.wikipedia.org/wiki/Copy_and_paste_programming)
+
+## Example from Advanced R
+```{r output=FALSE}
+# Generate a sample dataset
+set.seed(1014)
+df <- data.frame(replicate(6, sample(c(1:10, -99), 6, rep = TRUE)))
+names(df) <- letters[1:6]
+df
+
+#BAD
+df$a[df$a == -99] <- NA
+df$b[df$b == -99] <- NA
+df$c[df$c == -99] <- NA
+df$d[df$d == -99] <- NA
+df$e[df$e == -99] <- NA
+df$f[df$f == -99] <- NA
+
+```
+
+## Better solutions
+- Use a function, `lapply`, or `purrr`
+```{r eval=FALSE}
+fix_missing <- function(x) {
+  x[x == -99] <- NA
+  x
+}
+
+df[] <- lapply(df, fix_missing)
+
+purrr::map_df(df, fix_missing)
+```
+
+## Multiple functions
+```{r eval=FALSE}
+x <- c(1:10, NA)
+funs <- list(
+  sum = sum,
+  mean = mean,
+  median = median
+)
+lapply(funs, function(f) f(x))
+
+lapply(funs, function(f) f(x, na.rm = TRUE))
+```
+>- More [here](http://adv-r.had.co.nz/Functional-programming.html)
+
+
+## Meaningful naming and style
+>- Be consistent
+>- Human and machine readable
+>- Don't use names that mean something (`F`,`sum`)
+>- Extra credit: [style guide](http://adv-r.had.co.nz/Style.html)
+>- Help: `lintr` and `styler` packages
+
+# Basic documentation
+
+## Simple comments above every function
+- Include above every function a:
+
+    - description
+    - detail about each argument
+    - detail about the return value
+    - examples (extra)
+
+## Documentation example
+
+```{r}
+#' Function that loops through and runs scenarios for each of the life histories in the list
+#' @param life.histories - list containing life history parameters for each species
+#' @param equils - list of equilibrium values for each stock, Fmsy, Bmsy, Bmax
+#' @param nyears - number of years to run the simulation for
+#' @param nsims - number of simulations
+#' @param f.scen - which of the four fishing scenarios to use; 0 =none, 1=low, 2=med, 3=hi.
+#' @return out.stats - a list of the scenarios output, each list item is one stock's output
+```
+
+# Errors
+
+## Overview 
+- Stop
+- Debugging
+- Unit testing
+- Integrated testing
+
+## Error messages
+- Use `stop()` to give intelligible feedback
+- Check inputs
+- Avoid silent failures
+
+```{r eval=FALSE}
+  #Check all lifehistory parameters are included
+  if(is.null(lh$M)){
+    stop("M is missing")
+  }
+```
+
+## Debugging
+>- `debugonce(<functionname>)` allows you to step through code
+>- Functional programming supports easier debugging
+
+## Unit testing
+- With `testthat()` 
+```{r eval = F}
+context("String length")
+library(stringr)
+
+test_that("str_length is number of characters", {
+  expect_equal(str_length("a"), 1)
+  expect_equal(str_length("ab"), 2)
+  expect_equal(str_length("abc"), 3)
+})
+
+test_that("str_length of factor is length of level", {
+  expect_equal(str_length(factor("a")), 1)
+  expect_equal(str_length(factor("ab")), 2)
+  expect_equal(str_length(factor("abc")), 3)
+})
+
+test_that("str_length of missing is missing", {
+  expect_equal(str_length(NA), NA_integer_)
+  expect_equal(str_length(c(NA, 1)), c(NA, 1))
+  expect_equal(str_length("NA"), 2)
+})
+```
+
+
+## Integrated testing
+>- Equilibrium diagnostics
+>- Running with simulated data/fixed inputs
+>- Example files you can run to test with
+
+## Automation and feedback
+>- Automate tests with TravisCI
+>- [Code review on Github](https://github.com/features/code-review/)
+
+
+## From the Carpentries
+- Program defensively, i.e., assume that errors are going to arise, and write code to detect them when they do.
+- Write tests before writing code in order to help determine exactly what that code is supposed to do.
+Know what code is supposed to do before trying to debug it.
+- Make it fail every time.
+- Make it fail fast.
+- Change one thing at a time, and for a reason.
+- Keep track of what you've done.
+- Be humble
+
+# Resources 
+
+## Used to build this talk
+- [Advanced R](http://adv-r.had.co.nz/)
+- [Workflow/paths](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
+- [Software carpentry](https://software-carpentry.org/)
+
+## If you want to go further
+- [Git with R](https://happygitwithr.com/)
+- [R packages](http://r-pkgs.had.co.nz/)
+- [R notebooks](https://bookdown.org/yihui/rmarkdown/notebook.html)
+- [Jupyter for R with conda](https://anaconda.org/chdoig/jupyter-and-conda-for-r/notebook)
+- [purrr](https://purrr.tidyverse.org/)
+- [Carpentries training](http://swcarpentry.github.io/r-novice-gapminder/reference)
+
