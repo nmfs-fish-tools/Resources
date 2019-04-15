@@ -1,12 +1,13 @@
 # Version Control Tutorial
+(in progress...)
 
 ## What is version control
-
+(from wikipedia)
  >Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later.
 
 There are many types of [version control](https://en.wikipedia.org/wiki/List_of_version-control_software).
 We will focus here on the Distributed Model:
-
+(from wikipedia)
 > In the distributed approach, each developer works directly with his or her own local repository, and changes are shared between repositories as a separate step.
 
 Although there are several open source tools available for this approach. We use Git.
@@ -25,7 +26,7 @@ Although there are several open source tools available for this approach. We use
 Thereare many open-source and private systems that offer Git Server as a Service that each have additional tools and benefits.  The main one being the ability to push code to a server for backup and easy collaboration.  Some of the well know systems are:
 - Github
 - Gitlab
-- Bitbukect
+- Bitbucket
 
 We will focus on use of Github herein.
 
