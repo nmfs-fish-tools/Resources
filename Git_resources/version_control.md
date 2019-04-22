@@ -41,6 +41,14 @@ you will need admin privlages.
 ### Creating a Github account
 - for general information on creating a github account.  For NOAA specific users there are specific requirements.
 Please note that if you have multiple Github identities ( perhaps a personal one and a work one).  Youll want to be careful about which identity you use.  See Multiple Identities below to set up automated ways of dealing with this.
+add links to documentation on github .. three config files
+
+
+- it is good pracitce to use 2 step auth
+- sign up for a github account here
+- for NOAA usesrs, use your noaa email and have your user name and email the same as you vlab account will make it easier to connect through either service.
+
+-link to mult
 
 
 
@@ -57,6 +65,45 @@ gi config user.email
 
 ### SSH and security measures
 
-### Basic workflows
 
+### Basic workflows
+  -Starting on your coputer with a basic git repo
+  - create a folder and initiliaze
+
+  ````git init````
+
+  check user config for repo is correct
+
+  If you have multiple identiies it is a good idea to check which identity this folder is using and change if necessary
+
+  ````
+   git config user.email
+   git config user.name
+   ````
+
+    - create a README document as text or markdown which will hold basic ifnormation about your code repository
+
+    ````
+   echo README.md > README file for Repo Name
+   git add README.md
+   git commit -m"addd readme"
+   ````
+
+   go onto github and create an empty repository
+
+
+   git push master ssh... -u
+
+   - once you are set up wyou will want to get into a standard git [workflow]
+   (https://www.atlassian.com/git/tutorials/comparing-workflows)
+   where you commit changes locally often  and push to your remote master at least daily if changes have been made or when many changes have occured.  commiting often will help when you want to revert ( go backwards ) or if you are actively working with several others
+
+
+### Branching..
+  Branching can be htough of as creating a copy of your code with a flag at the point where you started the branch.  This allows you to try out a different path or set of function.  It is good practice when you are addign a new feature to solid working code or working on a siginificant piece of code that will likely need to be incorpatted to the larger code base at a later time.  If you do not like it then you can always just go back to your branching point.  You may choose to use local branches only and merge your code or send your branch up to the master repostitory.  ZGOod practice dictates not having sveral " orphan" branhces  or useing branches as specific features;  Once a branch is ready to be merged into the main repository, the branch should be deleted so it does not cause any confusion in the development process
+
+
+
+
+ ### Free online Github tutorials
 
