@@ -19,22 +19,24 @@ Although there are several open source tools available for this approach. We use
 
 > Git is free and open-source software distributed under the terms of the GNU General Public License version 2.
 
-## GIT
+## [GIT](https://git-scm.com/)
+### Installing GIT
+General installation [directions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+You will need admin privlages.
+- configure git
+
+Although you could just use Git locally for version control, it is best to use with a server systen
+- youll want to be aware of your user name and user email for setting up your Github account
 
 
-## Git Server as a Service
-Thereare many open-source and private systems that offer Git Server as a Service that each have additional tools and benefits.  The main one being the ability to push code to a server for backup and easy collaboration.  Some of the well know systems are:
-- Github
-- Gitlab
-- Bitbucket
+
+## GIT Server as a Service
+There are many open-source and private systems that offer Git Server as a Service that each have additional tools and benefits.  The main one being the ability to push code to a server for backup and easy collaboration.  Some of the well know systems are:
+- [Github](https://github.com/)
+- [Gitlab](https://about.gitlab.com/)
+- [Bitbucket](https://bitbucket.org/)
 
 We will focus on use of Github herein.
-
-### Installing GIT
-general installation directions (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-you will need admin privlages.
-- configure git
-- youll want to be aware of your user name and user email for setting up your Github account
 
 
 
@@ -70,40 +72,46 @@ gi config user.email
   -Starting on your coputer with a basic git repo
   - create a folder and initiliaze
 
-  ````git init````
+```git init```
 
-  check user config for repo is correct
+check user config for repo is correct
 
-  If you have multiple identiies it is a good idea to check which identity this folder is using and change if necessary
+If you have multiple identiies it is a good idea to check which identity this folder is using and change if necessary
 
-  ````
+```
    git config user.email
    git config user.name
-   ````
+```
 
-    - create a README document as text or markdown which will hold basic ifnormation about your code repository
+- create a README document as text or markdown which will hold basic ifnormation about your code repository
 
-    ````
+
+```
    echo README.md > README file for Repo Name
    git add README.md
    git commit -m"addd readme"
-   ````
-
-   go onto github and create an empty repository
+```
 
 
-   git push master ssh... -u
+go onto github and create an empty repository
 
-   - once you are set up wyou will want to get into a standard git [workflow]
-   (https://www.atlassian.com/git/tutorials/comparing-workflows)
-   where you commit changes locally often  and push to your remote master at least daily if changes have been made or when many changes have occured.  commiting often will help when you want to revert ( go backwards ) or if you are actively working with several others
+    git push master ssh... -u
+
+- once you are set up you will want to get into a standard git [workflow]
+(https://www.atlassian.com/git/tutorials/comparing-workflows)
+where you commit changes locally often  and push to your remote master at least daily if changes have been made or when many changes have occured.  commiting often will help when you want to revert ( go backwards ) or if you are actively working with several others
 
 
 ### Branching..
-  Branching can be htough of as creating a copy of your code with a flag at the point where you started the branch.  This allows you to try out a different path or set of function.  It is good practice when you are addign a new feature to solid working code or working on a siginificant piece of code that will likely need to be incorpatted to the larger code base at a later time.  If you do not like it then you can always just go back to your branching point.  You may choose to use local branches only and merge your code or send your branch up to the master repostitory.  ZGOod practice dictates not having sveral " orphan" branhces  or useing branches as specific features;  Once a branch is ready to be merged into the main repository, the branch should be deleted so it does not cause any confusion in the development process
+Branching can be htough of as creating a copy of your code with a flag at the point where you started the branch.  This allows you to try out a different path or set of function.  It is good practice when you are addign a new feature to solid working code or working on a siginificant piece of code that will likely need to be incorpatted to the larger code base at a later time.  If you do not like it then you can always just go back to your branching point.  You may choose to use local branches only and merge your code or send your branch up to the master repostitory.  ZGOod practice dictates not having sveral " orphan" branhces  or useing branches as specific features;  Once a branch is ready to be merged into the main repository, the branch should be deleted so it does not cause any confusion in the development process
+
+### Helpful hints
+git stash
+git pop
+git revert
+git head
 
 
 
-
- ### Free online Github tutorials
-
+### Free online Github tutorials
+[more info from Atlassian](https://www.atlassian.com/git/tutorials)
