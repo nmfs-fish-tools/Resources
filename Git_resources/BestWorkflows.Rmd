@@ -47,16 +47,6 @@ My main critique of Github is its tendency to provide too many parallel options 
 
 For our toolbox, NOAA git policy dictates non-NOAA affiliates cannot have push access to the repository. For this reason, you can only use the branch workflow if your repository exists under an organization, which allows you to tweak the permissions of collaborators. A non-organization git repo gives all collaborators push access. We recommend creating an organization for your repository if you have more than one repository and/or more than 2 or 3 collaborators and using the branching workflow for changes you expect to be merged back into the master branch. If you expect changes to diverge and not rejoin master, or you have one repository with non-NOAA collaborators, the forking workflow may suit your needs better.  
 
-```{r cars}
-summary(cars)
-```
-
 ## Avoiding duplication
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
