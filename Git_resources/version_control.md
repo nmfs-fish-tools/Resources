@@ -46,9 +46,9 @@ Please note that if you have multiple Github identities ( perhaps a personal one
 add links to documentation on github .. three config files
 
 
-- it is good pracitce to use 2 step auth
+- it is good pracitce to use 2-factor authentication
 - sign up for a github account here
-- for NOAA usesrs, use your noaa email and have your user name and email the same as you vlab account will make it easier to connect through either service.
+- for NOAA users, use your @NOAA.gov email and have your user name and email the same as you vlab account - this will make it easier to connect through either service.
 
 -link to mult
 
@@ -69,7 +69,7 @@ gi config user.email
 
 
 ### Basic workflows
-  -Starting on your coputer with a basic git repo
+  -Starting on your computer with a basic git repo
   - create a folder and initiliaze
 
 ```git init```
@@ -99,11 +99,11 @@ go onto github and create an empty repository
 
 - once you are set up you will want to get into a standard git [workflow]
 (https://www.atlassian.com/git/tutorials/comparing-workflows)
-where you commit changes locally often  and push to your remote master at least daily if changes have been made or when many changes have occured.  commiting often will help when you want to revert ( go backwards ) or if you are actively working with several others
+where you commit changes locally often  and push to your remote master at least daily if changes have been made or when many changes have occurred. Commiting often will help when you want to revert ( go backwards ) or if you are actively working with several others. For more details on managing multi-user workflows, see this [cheat sheet](https://github.com/nmfs-fish-tools/Resources/blob/master/Git_resources/version_control.md). 
 
 
 ### Branching..
-Branching can be htough of as creating a copy of your code with a flag at the point where you started the branch.  This allows you to try out a different path or set of function.  It is good practice when you are addign a new feature to solid working code or working on a siginificant piece of code that will likely need to be incorpatted to the larger code base at a later time.  If you do not like it then you can always just go back to your branching point.  You may choose to use local branches only and merge your code or send your branch up to the master repostitory.  ZGOod practice dictates not having sveral " orphan" branhces  or useing branches as specific features;  Once a branch is ready to be merged into the main repository, the branch should be deleted so it does not cause any confusion in the development process
+Branching can be thought of as creating a copy of your code with a flag at the point where you started the branch.  This allows you to try out a different path or set of functions.  It is good practice when you are adding a new feature to solid working code or working on a siginificant piece of code that will likely need to be incorporated to the larger code base at a later time. You can always just go back to your branching point.  You may choose to use local branches only and merge your code, or send your branch up to the master repostitory.  Good practice dictates not having several "orphan" branhces  or using branches as specific features; once a branch is ready to be merged into the main repository, the branch should be deleted so it does not cause any confusion in the development process
 
 ### Helpful hints
 git stash
