@@ -21,8 +21,8 @@ version:
 
 <a href="https://cran.r-project.org/package=drake"><img src="https://www.r-pkg.org/badges/version/drake" alt="CRAN"></a>
 
-If your software uses a different platform, you can create a (custom
-badge)\[<https://shields.io/>\] to outline dependencies in the same way,
+If your software uses a different platform, you can create a [custom
+badge](https://shields.io/) to outline dependencies in the same way,
 or you can simply create a "Dependencies" header in the README and list
 the dependencies out.
 
@@ -50,7 +50,7 @@ need to manage this, you should reference package functions using
 `<packagename>::<function>` or, if you are using many functions from the
 same package, put `@import package` in the NAMESPACE file of your R
 package. Many more details are covered in Hadley Wickham's `R` package
-(book)\[<http://r-pkgs.had.co.nz/description.html#dependencies>\].
+[book](http://r-pkgs.had.co.nz/description.html#dependencies).
 
     ## in DESCRIPTION file
     Depends: R (>= 3.1.0)
