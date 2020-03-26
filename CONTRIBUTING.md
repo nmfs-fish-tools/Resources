@@ -17,13 +17,13 @@ The following is a set of guidelines for contributing to tools hosted on the NOA
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [NOAA Fisheries Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [nmfs-toolbox@noaa.gov](mailto:nmfs-toolbox@noaa.gov).
+This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [fisheries.toolbox@noaa.gov](mailto:fisheries.toolbox@noaa.gov).
 
 ## I don't want to read this whole thing I just have a question!!!
 
 > **Note:** Please don't file an issue to ask a question. You'll get faster results by using the resources below.
 
-TODO: add a link to forums or mail addresses for toolbox.
+Please email the toolbox maintainers [fisheries.toolbox@noaa.gov](mailto:fisheries.toolbox@noaa.gov) or the owners of the specific repository if you have a question.
 
 ## How Can I Contribute?
 
@@ -37,7 +37,7 @@ Before creating bug reports, please check the issue list for the repository you 
 
 #### Before Submitting A Bug Report
 
-* **Check if it is related to version.** We recommend using `sessionInfo()` and submitting the results in your bug report. Also, please check your R version against the required R version in the DESCRIPTION file and update if needed to see if that fixes the issue.
+* **Check if it is related to version.** We recommend using `sessionInfo()` within your `R` console and submitting the results in your bug report. Also, please check your R version against the required R version in the DESCRIPTION file and update if needed to see if that fixes the issue.
 * **Perform a cursory search of issues** to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one.
 
 #### How Do I Submit A (Good) Bug Report?
@@ -47,7 +47,7 @@ Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/).
 Explain the problem and include additional details to help maintainers reproduce the problem:
 
 * **Use a clear and descriptive title** for the issue to identify the problem.
-* **Describe the exact steps which reproduce the problem** in as many details as possible. For example, start by including the output of `sessionInfo()` and details on your operating system and whether you encountered the issue in base R or RStudio.
+* **Describe the exact steps which reproduce the problem** in as many details as possible. For example, start by including the output of `sessionInfo()` and details on your operating system and whether you encountered the issue in base `R` or RStudio.
 * **Provide specific examples to demonstrate the steps**. Include links to GitHub projects, or copy/pasteable snippets, which you use in those examples. If you're providing snippets in the issue, use the [reprex package](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html). 
 * **Describe the behavior you observed after following the steps** and point out what exactly is the problem with that behavior.
 * **Explain which behavior you expected to see instead and why.**
@@ -75,7 +75,7 @@ Before creating enhancement suggestions, please check the issues list as you mig
 
 #### Before Submitting An Enhancement Suggestion
 
-* **Check you have the latest version of the package
+* **Check you have the latest version of the package**
 * **Check if the development branch has that enhancement in the works.**
 * **Perform a cursory search of the issues and enhancement tags** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 
