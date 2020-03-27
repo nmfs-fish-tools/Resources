@@ -31,14 +31,10 @@ Please email the toolbox maintainers [fisheries.toolbox@noaa.gov](mailto:fisheri
 
 This section guides you through submitting a bug report for any toolbox tool. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
 
-Before creating bug reports, please check the issue list for the repository you are using, as you might find out that you don't need to create one. When you are creating a bug report, please include as many details as possible. 
-
-> **Note:** If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
-
 #### Before Submitting A Bug Report
 
 * **Check if it is related to version.** We recommend using `sessionInfo()` within your `R` console and submitting the results in your bug report. Also, please check your R version against the required R version in the DESCRIPTION file and update if needed to see if that fixes the issue.
-* **Perform a cursory search of issues** to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one.
+* **Perform a cursory search of issues** to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one. If it has **and the issue is closed**, open a new issue and include a link to the original issue in the body of your new one.
 
 #### How Do I Submit A (Good) Bug Report?
 
