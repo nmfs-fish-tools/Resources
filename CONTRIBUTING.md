@@ -93,16 +93,18 @@ Unsure where to begin contributing? Some repositories include `help-wanted` issu
 
 Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.
 
+To learn more about workflows for contributing code, see the [Github collaborating with issues and pull requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests).
+
 #### Local development
 
-Packages can be developed locally using the following Github workflow: 
+R packages can be developed locally using the following Github workflow: 
 - Clone the package locally (`git clone `)
 - Make sure you check out the development branch and pull it. The development branch is the most up-to-date centralized version of the package for most toolbox tools. This can be done on the command line with `git checkout -b development`
 - Create a feature branch for your change with a meaningful name. For example, if you are adding a biomass graph, you might call it `git checkout -b biomassgraph`
 - Make your change in your local copy of the repository.
 - Restart R, load the package locally (`devtools::load_all(".")`), and test your change.
 - Add or edit documentation using the `roxygen` comment standard. A good overview is [here](http://r-pkgs.had.co.nz/man.html). If you are adding a new function, please include an example that illustrates use of your function that works with only the data included in the package.
-- Run `devtools::document()` to create the new .Md file containing the new or updated documentation.
+- Run `devtools::check()` to ensure the package can still be built with your change.
 - Submit a pull request.
 - Once your pull request is approved, delete your feature branch.
 
@@ -111,8 +113,8 @@ Packages can be developed locally using the following Github workflow:
 Please follow these steps to have your contribution considered by the maintainers:
 
 1. Follow all instructions above.
-2. Follow the [styleguides](http://adv-r.had.co.nz/Style.html)
-3. After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks/) are passing <details><summary>What if the status checks are failing?</summary>If a status check is failing, and you believe that the failure is unrelated to your change, please leave a comment on the pull request explaining why you believe the failure is unrelated. A maintainer will re-run the status check for you.</details>
+2. Follow the [styleguide](https://style.tidyverse.org/).
+3. After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks/) are passing. <details><summary>What if the status checks are failing?</summary>If a status check is failing, and you believe that the failure is unrelated to your change, please leave a comment on the pull request explaining why you believe the failure is unrelated. A maintainer will re-run the status check for you.</details>
 
 While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional changes before your pull request can be ultimately accepted.
 
