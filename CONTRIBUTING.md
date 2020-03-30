@@ -60,7 +60,7 @@ Provide more context by answering these questions:
 Include details about your configuration and environment:
 
 * **Which version of the tool are you using?** 
-* **What's the name and version of the OS you're using**?
+* **What's the name and version of the OS you're using?**
 * **Which packages do you have installed?** You can get that list by running `sessionInfo()`.
 
 ### Suggesting Enhancements
@@ -71,7 +71,7 @@ Before creating enhancement suggestions, please check the issues list as you mig
 
 #### Before Submitting An Enhancement Suggestion
 
-* **Check you have the latest version of the package**
+* **Check you have the latest version of the package.**
 * **Check if the development branch has that enhancement in the works.**
 * **Perform a cursory search of the issues and enhancement tags** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 
@@ -84,7 +84,7 @@ Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com
 * **Provide specific examples to demonstrate the steps**. Include copy/pasteable snippets which you use in those examples, as [Markdown code blocks](https://help.github.com/articles/markdown-basics/#multiple-lines).
 * **Describe the current behavior** and **explain which behavior you expected to see instead** and why.
 * **Include screenshots and animated GIFs** which help you demonstrate the steps if needed. You can use [licecap](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [silentcast](https://github.com/colinkeenan/silentcast) on Linux.
-* **Explain why this enhancement would be useful** 
+* **Explain why this enhancement would be useful.** 
 * **List some other text editors or applications where this enhancement exists.**
 
 ### Your First Code Contribution
@@ -98,12 +98,12 @@ To learn more about workflows for contributing code, see the [Github collaborati
 #### Local development
 
 R packages can be developed locally using the following Github workflow: 
-- Clone the package locally 
+- Clone the package locally: 
 ```console 
 git clone 
 ```
 
-- Make sure you check out the development branch and pull it. The development branch is the most up-to-date centralized version of the package for most toolbox tools. This can be done on the command line with 
+- Make sure you check out the development branch and pull it. The development branch is the most up-to-date centralized version of the package for most toolbox tools. This can be done on the command line with:
 ```console
 git checkout -b development
 ```
@@ -114,18 +114,18 @@ git checkout -b biomassgraph
 ```
 
 - Make your change in your local copy of the repository.
-- Restart R, load the package locally 
+- Restart R, load the package locally:
 ```r
 devtools::load_all(".")
 ``` 
 Then test your change.
 - Add or edit documentation using the `roxygen` comment standard. A good overview is [here](http://r-pkgs.had.co.nz/man.html). If you are adding a new function, please include an example that illustrates use of your function that works with only the data included in the package.
-- Run 
+- Run:
 ```r
 devtools::check()
 ``` 
 to ensure the package can still be built with your change.
-- Submit a pull request.
+- Submit a pull request. Please follow pull request [best practices.](https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests)
 - Once your pull request is approved, delete your feature branch.
 
 ### Pull Requests
