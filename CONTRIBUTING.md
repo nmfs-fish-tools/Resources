@@ -133,7 +133,8 @@ to ensure the package can still be built with your change.
 Please follow these steps to have your contribution considered by the maintainers:
 
 1. Follow all instructions above.
-2. Follow the [styleguide](https://style.tidyverse.org/).
+2. Follow the [R styleguide](https://style.tidyverse.org/) when writing your code.
+3. Follow the best practices for [pull requests](https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests) when submitting a pull request.
 3. After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks/) are passing. <details><summary>What if the status checks are failing?</summary>If a status check is failing, and you believe that the failure is unrelated to your change, please leave a comment on the pull request explaining why you believe the failure is unrelated. A maintainer will re-run the status check for you.</details>
 
 While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional changes before your pull request can be ultimately accepted.
