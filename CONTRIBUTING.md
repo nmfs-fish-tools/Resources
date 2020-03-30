@@ -138,7 +138,7 @@ The labels are loosely grouped by their purpose, but it's not required that ever
 | `bug` |  Confirmed bugs or reports that are very likely to be bugs. |
 | `question` |  Questions more than bug reports or feature requests (e.g. how do I do X). |
 | `feedback` | General feedback more than bug reports or feature requests. |
-| `help-wanted` |  The Atom core team would appreciate help from the community in resolving these issues. |
+| `help-wanted` |  The development team would appreciate help from the community in resolving these issues. |
 | `more-information-needed` | More information needs to be collected about these problems or feature requests (e.g. steps to reproduce). |
 | `needs-reproduction` | Likely bugs, but haven't been reliably reproduced. |
 | `blocked` | Issues blocked on other issues. |
