@@ -98,13 +98,33 @@ To learn more about workflows for contributing code, see the [Github collaborati
 #### Local development
 
 R packages can be developed locally using the following Github workflow: 
-- Clone the package locally (`git clone `)
-- Make sure you check out the development branch and pull it. The development branch is the most up-to-date centralized version of the package for most toolbox tools. This can be done on the command line with `git checkout -b development`
-- Create a feature branch for your change with a meaningful name. For example, if you are adding a biomass graph, you might call it `git checkout -b biomassgraph`
+- Clone the package locally 
+```console 
+git clone 
+```
+
+- Make sure you check out the development branch and pull it. The development branch is the most up-to-date centralized version of the package for most toolbox tools. This can be done on the command line with 
+```console
+git checkout -b development
+```
+
+- Create a feature branch for your change with a meaningful name. For example, if you are adding a biomass graph, you might call it
+```console
+git checkout -b biomassgraph
+```
+
 - Make your change in your local copy of the repository.
-- Restart R, load the package locally (`devtools::load_all(".")`), and test your change.
+- Restart R, load the package locally 
+```r
+devtools::load_all(".")
+``` 
+Then test your change.
 - Add or edit documentation using the `roxygen` comment standard. A good overview is [here](http://r-pkgs.had.co.nz/man.html). If you are adding a new function, please include an example that illustrates use of your function that works with only the data included in the package.
-- Run `devtools::check()` to ensure the package can still be built with your change.
+- Run 
+```r
+devtools::check()
+``` 
+to ensure the package can still be built with your change.
 - Submit a pull request.
 - Once your pull request is approved, delete your feature branch.
 
