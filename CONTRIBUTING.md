@@ -31,14 +31,10 @@ Please email the toolbox maintainers [fisheries.toolbox@noaa.gov](mailto:fisheri
 
 This section guides you through submitting a bug report for any toolbox tool. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
 
-Before creating bug reports, please check the issue list for the repository you are using, as you might find out that you don't need to create one. When you are creating a bug report, please include as many details as possible. 
-
-> **Note:** If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
-
 #### Before Submitting A Bug Report
 
 * **Check if it is related to version.** We recommend using `sessionInfo()` within your `R` console and submitting the results in your bug report. Also, please check your R version against the required R version in the DESCRIPTION file and update if needed to see if that fixes the issue.
-* **Perform a cursory search of issues** to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one.
+* **Perform a cursory search of issues** to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one. If it has **and the issue is closed**, open a new issue and include a link to the original issue in the body of your new one.
 
 #### How Do I Submit A (Good) Bug Report?
 
@@ -51,7 +47,7 @@ Explain the problem and include additional details to help maintainers reproduce
 * **Provide specific examples to demonstrate the steps**. Include links to GitHub projects, or copy/pasteable snippets, which you use in those examples. If you're providing snippets in the issue, use the [reprex package](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html). 
 * **Describe the behavior you observed after following the steps** and point out what exactly is the problem with that behavior.
 * **Explain which behavior you expected to see instead and why.**
-* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem if there is a graphical issue. You can use [this tool](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux.
+* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem if there is a graphical issue. You can use [LICEcap](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [silentcast](https://github.com/colinkeenan/silentcast) on Linux.
 * **If the problem wasn't triggered by a specific action**, describe what you were doing before the problem happened and share more information using the guidelines below.
 
 Provide more context by answering these questions:
@@ -87,7 +83,7 @@ Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com
 * **Provide a step-by-step description of the suggested enhancement** in as many details as possible.
 * **Provide specific examples to demonstrate the steps**. Include copy/pasteable snippets which you use in those examples, as [Markdown code blocks](https://help.github.com/articles/markdown-basics/#multiple-lines).
 * **Describe the current behavior** and **explain which behavior you expected to see instead** and why.
-* **Include screenshots and animated GIFs** which help you demonstrate the steps if needed. You can use [this tool](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux.
+* **Include screenshots and animated GIFs** which help you demonstrate the steps if needed. You can use [licecap](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [silentcast](https://github.com/colinkeenan/silentcast) on Linux.
 * **Explain why this enhancement would be useful** 
 * **List some other text editors or applications where this enhancement exists.**
 
@@ -97,16 +93,18 @@ Unsure where to begin contributing? Some repositories include `help-wanted` issu
 
 Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.
 
+To learn more about workflows for contributing code, see the [Github collaborating with issues and pull requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests).
+
 #### Local development
 
-Packages can be developed locally using the following Github workflow: 
+R packages can be developed locally using the following Github workflow: 
 - Clone the package locally (`git clone `)
 - Make sure you check out the development branch and pull it. The development branch is the most up-to-date centralized version of the package for most toolbox tools. This can be done on the command line with `git checkout -b development`
 - Create a feature branch for your change with a meaningful name. For example, if you are adding a biomass graph, you might call it `git checkout -b biomassgraph`
 - Make your change in your local copy of the repository.
 - Restart R, load the package locally (`devtools::load_all(".")`), and test your change.
 - Add or edit documentation using the `roxygen` comment standard. A good overview is [here](http://r-pkgs.had.co.nz/man.html). If you are adding a new function, please include an example that illustrates use of your function that works with only the data included in the package.
-- Run `devtools::document()` to create the new .Md file containing the new or updated documentation.
+- Run `devtools::check()` to ensure the package can still be built with your change.
 - Submit a pull request.
 - Once your pull request is approved, delete your feature branch.
 
@@ -115,8 +113,8 @@ Packages can be developed locally using the following Github workflow:
 Please follow these steps to have your contribution considered by the maintainers:
 
 1. Follow all instructions above.
-2. Follow the [styleguides](http://adv-r.had.co.nz/Style.html)
-3. After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks/) are passing <details><summary>What if the status checks are failing?</summary>If a status check is failing, and you believe that the failure is unrelated to your change, please leave a comment on the pull request explaining why you believe the failure is unrelated. A maintainer will re-run the status check for you.</details>
+2. Follow the [styleguide](https://style.tidyverse.org/).
+3. After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks/) are passing. <details><summary>What if the status checks are failing?</summary>If a status check is failing, and you believe that the failure is unrelated to your change, please leave a comment on the pull request explaining why you believe the failure is unrelated. A maintainer will re-run the status check for you.</details>
 
 While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional changes before your pull request can be ultimately accepted.
 
