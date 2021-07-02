@@ -1,0 +1,33 @@
+---
+output: 
+  md_document:
+    variant: gfm
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# README Template
+
+--------
+
+To use:
+
+* Copy to README.Rmd in your repo
+* Add your text between these lines
+* Then this Rmd file can be knitted to README.md or put in a package for **pkgdown** 
+
+The README.Rmd will source the FIT resources to add the standard disclaimer and NOAA Fisheries footer with images.
+
+--------
+
+```{r add-disclaimer, echo=FALSE, results='asis'}
+url <- "https://raw.githubusercontent.com/nmfs-fish-tools/Resources/master/Disclaimer.md"
+childtext <- readLines(url)
+cat(childtext, sep="\n")
+```
+
+```{r add-footer, echo=FALSE, results='asis'}
+url <- "https://raw.githubusercontent.com/nmfs-fish-tools/Resources/master/footer.md"
+childtext <- readLines(url)
+cat(childtext, sep="\n")
+```
