@@ -20,11 +20,15 @@ The README.Rmd will source the FIT resources to add the standard disclaimer and 
 
 --------
 
+**************
+
 ```{r add-disclaimer, echo=FALSE, results='asis'}
 url <- "https://raw.githubusercontent.com/nmfs-fish-tools/Resources/master/Disclaimer.md"
 childtext <- readLines(url)
 cat(childtext, sep="\n")
 ```
+
+**************
 
 ```{r add-footer, echo=FALSE, results='asis'}
 url <- "https://raw.githubusercontent.com/nmfs-fish-tools/Resources/master/footer.md"
