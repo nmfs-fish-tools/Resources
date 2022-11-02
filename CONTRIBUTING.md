@@ -1,6 +1,6 @@
-# Contributing to R tools in the NOAA Fisheries Toolbox
+# Contributing to tools in the NOAA Fisheries Toolbox
 
-The following is a set of guidelines for contributing to tools hosted on the NOAA Fisheries Toolbox, which are hosted in the [NMFS Fish Tools Organization](https://github.com/nmfs-fish-tools) on GitHub. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request. Heavily influenced by Atom's [CONTRIBUTING.md](https://github.com/atom/atom/blob/master/CONTRIBUTING.md).
+The following is a set of guidelines for contributing to tools hosted on the NOAA Fisheries Integrated Toolbox, which are hosted in the [NMFS Fish Tools Organization](https://github.com/nmfs-fish-tools) on GitHub. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request. Heavily influenced by Atom's [CONTRIBUTING.md](https://github.com/atom/atom/blob/master/CONTRIBUTING.md).
 
 #### Table Of Contents
 
@@ -26,6 +26,8 @@ This project and everyone participating in it is governed by the [Code of Conduc
 Please email the toolbox maintainers [fisheries.toolbox@noaa.gov](mailto:fisheries.toolbox@noaa.gov) or the owners of the specific repository if you have a question.
 
 ## How Can I Contribute?
+
+Not all contributions are code! Writing documentation, teaching, and other activities are also key parts of contributing to software. For more information about open source contributions, see [the Open Source Guide's How to Contribute page](https://opensource.guide/how-to-contribute/).
 
 ### Reporting Bugs
 
@@ -63,6 +65,7 @@ Include details about your configuration and environment:
 * **What's the name and version of the OS you're using?**
 * **Which packages do you have installed?** You can get that list by running `sessionInfo()`.
 
+
 ### Suggesting Enhancements
 
 This section guides you through submitting an enhancement suggestion for toolbox packages, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions.
@@ -95,46 +98,39 @@ Both issue lists are sorted by total number of comments. While not perfect, numb
 
 To learn more about workflows for contributing code, see the [Github collaborating with issues and pull requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests).
 
+#### Make changes online
+
+Github has an [online web-based editor](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor) which makes contributing simple changes (like editing a typo) easy.
+
 #### Local development
 
-R packages can be developed locally using the following Github workflow: 
-- Clone the package locally: 
-```console 
-git clone 
-```
-
-- Make sure you check out the development branch and pull it. The development branch is the most up-to-date centralized version of the package for most toolbox tools. This can be done on the command line with:
-```console
-git checkout -b development
-```
-
-- Create a feature branch for your change with a meaningful name. For example, if you are adding a biomass graph, you might call it
+Code changes can be done locally using the following Github workflow: 
+- Clone the package locally
+- Create a feature branch for your change with a meaningful name. For example, if you are adding a biomass graph, you might call it biomassgraph. From the command line:
 ```console
 git checkout -b biomassgraph
 ```
-
 - Make your change in your local copy of the repository.
-- Restart R, load the package locally:
+- For testing R code: Restart R, load the package locally from the R console:
 ```r
 devtools::load_all(".")
 ``` 
 Then test your change.
-- Add or edit documentation using the `roxygen` comment standard. A good overview is [here](http://r-pkgs.had.co.nz/man.html). If you are adding a new function, please include an example that illustrates use of your function that works with only the data included in the package.
-- Run:
+- For documenting R code: Add or edit documentation using the `roxygen` comment standard. A good overview is [here](http://r-pkgs.had.co.nz/man.html). If you are adding a new function, please include an example that illustrates use of your function that works with only the data included in the package.
+- For testing R code: Run:
 ```r
 devtools::check()
 ``` 
 to ensure the package can still be built with your change.
 - Submit a pull request. Please follow pull request [best practices.](https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests)
-- Once your pull request is approved, delete your feature branch.
+- Once your pull request is approved and merged in, delete your feature branch.
 
 ### Pull Requests
 
 Please follow these steps to have your contribution considered by the maintainers:
 
 1. Follow all instructions above.
-2. Follow the [R styleguide](https://style.tidyverse.org/) when writing your code.
-3. Follow the best practices for [pull requests](https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests) when submitting a pull request.
+2. For R code: Follow the [R style guide](https://style.tidyverse.org/) when writing your code.
 3. After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks/) are passing. <details><summary>What if the status checks are failing?</summary>If a status check is failing, and you believe that the failure is unrelated to your change, please leave a comment on the pull request explaining why you believe the failure is unrelated. A maintainer will re-run the status check for you.</details>
 
 While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional changes before your pull request can be ultimately accepted.
@@ -144,10 +140,8 @@ While the prerequisites above must be satisfied prior to having your pull reques
 
 ### Issue Labels
 
-This section lists the labels we use to help us track and manage issues and pull requests. Not all labels are used in each toolbox repository. 
+This section lists the labels we use to help us track and manage issues and pull requests. Not all labels are used in each toolbox repository and some repositories may use additional labels. 
 [GitHub search](https://help.github.com/articles/searching-issues/) makes it easy to use labels for finding groups of issues or pull requests you're interested in. We  encourage you to read about [other search filters](https://help.github.com/articles/searching-issues/) which will help you write more focused queries.
-
-The labels are loosely grouped by their purpose, but it's not required that every issue have a label from every group or that an issue can't have more than one label from the same group.
 
 #### Type of Issue and Issue State
 
@@ -160,7 +154,7 @@ The labels are loosely grouped by their purpose, but it's not required that ever
 | `help-wanted` |  The development team would appreciate help from the community in resolving these issues. |
 | `more-information-needed` | More information needs to be collected about these problems or feature requests (e.g. steps to reproduce). |
 | `needs-reproduction` | Likely bugs, but haven't been reliably reproduced. |
-| `blocked` | Issues blocked on other issues. |
+| `blocked` | Issues cannot currently be worked because it is blocked on other issues. |
 | `duplicate`  | Issues which are duplicates of other issues, i.e. they have been reported before. |
 | `wontfix` | The repository core development team has decided not to fix these issues for now, either because they're working as intended or for some other reason. |
 
